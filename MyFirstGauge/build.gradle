@@ -1,0 +1,30 @@
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'eclipse'
+apply plugin: 'gauge'
+
+buildscript {
+	repositories{
+		mavenCentral()
+		mavenLocal()
+		jcenter()
+	}
+	dependencies {
+		classpath('com.thoughtworks.gauge.gradle:gauge-gradle-plugin:1.7.3')
+	}
+} 
+
+repositories {
+	mavenCentral()
+	jcenter()
+}
+
+dependencies {
+	compile group: 'com.thoughtworks.gauge', name: 'gauge-java', version: '0.6.9'
+	testCompile group: 'junit', name: 'junit', version: '4.12'
+	compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.0'
+	compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.14.0'
+}
+gauge {
+	specsDir = 'specs'
+} 
